@@ -1,0 +1,69 @@
+<div>
+  <form (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-5 col-sm-12 m-b-md">
+        <div>
+          <div class="col-sm-12">
+            <div class="text-center">
+              <h3 class="mixed-subline"><span>Was möchten Sie entsorgen?</span> Zeigen Sie uns ein <strong>Foto</strong>
+                davon<br>
+              </h3>
+              <div class="form-group">
+                <input type="file" id="file" accept="image/*" (change)="handleFileInput($event.target.files)">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-5 col-sm-12 m-b-md float-right">
+        <div>
+          <div class="col-sm-12">
+            <div class="text-center">
+              <h3 class="mixed-subline">Oder per <strong>Drag n Drop</strong>
+              </h3>
+              <div class="form-group">
+                <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop
+                  (onFileDropped)="uploadFile($event)">
+                  <input hidden type="file" accept="image/*" #fileInput (change)="uploadFile($event.target.files)">
+                </div>
+                <div class="files-list" *ngFor="let file of files;let i= index">
+                  <p> {{ file.name }} </p>
+                  <button class="delete-file" (click)="deleteAttachment(i)">
+                    <i class="fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success">Senden</button>
+  </form>
+</div>
+
+<div class="jumbotron" style="background: linear-gradient(12deg,#f7f7f2 50%,#fefefe 0)" *ngFor="let cont of containers">
+  <div class="row">
+    <h3>{{cont.containerType}}</h3>
+
+  </div>
+  <div class="float-right">
+    <p class="h5">Preis: {{cont.containerPrice}}€</p>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 float-left">
+      <img src="assets/img/container_WM_7.png">
+    </div>
+    <div class="col-sm-12 float-right">
+        <button class="row btn btn-success float-right">Zur Bestellung</button>
+    </div>
+
+    
+  </div>
+
+
+
+
+
+</div>

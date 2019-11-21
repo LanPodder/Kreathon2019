@@ -1,6 +1,10 @@
 # Kreathon2019
 Web App that recommends containers based on uploaded image using AI and Maths :)
 
+## Requirements
+* .NET Core SDK
+* Node.js
+
 ## Usage
 `dotnet run` will build both the angular aswell as the .NET Core App. + 
 After running, upload an image and press "send", to send the image to following API: + 
